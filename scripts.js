@@ -97,28 +97,35 @@ class Calculator {
     count() {
     
        let self = this 
+
+       const toFix = (num) => {
+            if (String(num).split('').length > 4) {
+                return num.toFixed(2)
+            }
+            return num
+       }
       
         switch (self.operation) {
             case '+': {
-                self.screen.innerText = +self.operandA + +self.operandB;
+                self.screen.innerText = toFix(+self.operandA + +self.operandB);
                 console.log(self)
             }
             break
 
             case '-': {
-                self.screen.innerText = +self.operandA - +self.operandB;
+                self.screen.innerText = toFix(+self.operandA - +self.operandB);
                 console.log(self);
             }
             break
 
             case 'X': {
-                self.screen.innerText = +self.operandA * +self.operandB;
+                self.screen.innerText = toFix(+self.operandA * +self.operandB);
                 console.log(self);
             }
             break
 
             case '/': {
-                self.screen.innerText = +self.operandA / +self.operandB;
+                self.screen.innerText = toFix(+self.operandA / +self.operandB);
                 console.log(self);
             }
             break
@@ -132,5 +139,3 @@ class Calculator {
 }
 
 let calculator = new Calculator()
-
-console.log(calculator)
